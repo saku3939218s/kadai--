@@ -40,11 +40,13 @@ TicketVendor --> Item
 Cart *-- CartItem
 ```
 
+```mermaid
 ---
 config:
   theme: forest
 ---
 sequenceDiagram
+
     actor ore as 人（ユーザー）
     participant Main as :Main
     participant TicketVendor as :TicketVendor
@@ -55,6 +57,7 @@ sequenceDiagram
     activate Main
 
     Main->>+TicketVendor: new
+
     TicketVendor->>+Item: new
     deactivate Item
 
@@ -76,13 +79,11 @@ sequenceDiagram
         opt 同じ商品がある場合
 
             Cart->>+CartItem: 数量変更
-
             deactivate CartItem
 
         else 新しい商品の場合
 
             Cart->>+CartItem: new
-
             deactivate CartItem
 
         end
