@@ -1,44 +1,39 @@
-# kadai--
----
-config:
-  layout: elk
----
 classDiagram
-direction TB
-    class TicketVendor {
-	    -Items:List
-	    -cart Cart
-	    +showItems() :void
-	    +addItemYoCart(int itemld) :void
-	    +showCartItems() :void
-	    +calcChange(int payment) :void
-    }
 
-    class Main {
-	    +Main
-    }
+class TicketVendor {
+    -Items: List
+    -cart: Cart
+    +showItems() : void
+    +addItemToCart(int itemId) : void
+    +showCartItems() : void
+    +calcChange(int payment) : void
+}
 
-    class Cart {
-	    -cartItems:List
-	    +addItem(Item item) :void
-	    +getCartItems() :List
-	    +getTotalPrice() :int
-    }
+class Main {
+    +Main()
+}
 
-    class Item {
-	    -id:int
-	    -name:String
-	    -price:int
-    }
+class Cart {
+    -cartItems: List
+    +addItem(Item item) : void
+    +getCartItems() : List
+    +getTotalPrice() : int
+}
 
-    class UntitledClass {
-	    -id:int
-	    -name:String
-	    -price:int
-	    -quantity:int
-    }
+class Item {
+    -id: int
+    -name: String
+    -price: int
+}
 
-    TicketVendor <|-- Main
-    TicketVendor <|-- Cart
-    TicketVendor <|-- Item
-    Cart -- UntitledClass
+class CartItem {
+    -id: int
+    -name: String
+    -price: int
+    -quantity: int
+}
+
+Main --> TicketVendor
+TicketVendor --> Cart
+TicketVendor --> Item
+Cart *-- CartItem
