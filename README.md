@@ -33,7 +33,8 @@ class CartItem {
     -quantity: int
 }
 
-Main --> TicketVendor
+TicketVendor --> Main
 TicketVendor --> Cart
 TicketVendor --> Item
+
 Cart *-- CartItem
