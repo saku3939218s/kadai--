@@ -39,7 +39,7 @@ TicketVendor --> Cart
 TicketVendor --> Item
 Cart *-- CartItem
 ```
-```mermaid
+
 ---
 config:
   theme: forest
