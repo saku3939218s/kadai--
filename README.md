@@ -48,6 +48,7 @@ config:
 sequenceDiagram
 
     actor ore as 人（ユーザー）
+
     participant Main as :Main
     participant TicketVendor as :TicketVendor
     participant Item as :Item
@@ -63,9 +64,11 @@ sequenceDiagram
 
     TicketVendor->>+Cart: new
     deactivate Cart
+
     deactivate TicketVendor
 
     Main->>+TicketVendor: showItems()
+
     TicketVendor-->>-Main: 商品一覧
 
     loop 商品番号入力
@@ -76,7 +79,7 @@ sequenceDiagram
 
         TicketVendor->>+Cart: addItem(item)
 
-        opt 同じ商品がある場合
+        alt 同じ商品がある場合
 
             Cart->>+CartItem: 数量変更
             deactivate CartItem
