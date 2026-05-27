@@ -121,7 +121,7 @@ sequenceDiagram
     deactivate Main
 ```
 
-```PlantUML
+```
 @startuml
 
 class TicketVendor {
@@ -165,7 +165,7 @@ Cart *-- CartItem
 @enduml
 ```
 
-```PlantUML
+```
 @startuml
 
 actor "人（ユーザー）" as ore
