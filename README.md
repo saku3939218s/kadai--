@@ -120,3 +120,47 @@ sequenceDiagram
 
     deactivate Main
 ```
+```PlantUML
+@startuml
+
+class TicketVendor {
+    - Items : List
+    - cart : Cart
+    + showItems() : void
+    + addItemToCart(itemId : int) : void
+    + showCartItems() : void
+    + calcChange(payment : int) : void
+}
+
+class Main {
+    + Main()
+}
+
+class Cart {
+    - cartItems : List
+    + addItem(item : Item) : void
+    + getCartItems() : List
+    + getTotalPrice() : int
+}
+
+class Item {
+    - id : int
+    - name : String
+    - price : int
+}
+
+class CartItem {
+    - id : int
+    - name : String
+    - price : int
+    - quantity : int
+}
+
+TicketVendor --> Main
+TicketVendor --> Cart
+TicketVendor --> Item
+Cart *-- CartItem
+
+@enduml
+```
+
